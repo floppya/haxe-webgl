@@ -1,0 +1,7 @@
+<project name="haxe-webgl" url="https://github.com/floppya/haxe-webgl" license="MIT">
+    <user name="floppya"/>
+    <tag v="js"/>
+    <tag v="webgl"/>
+    <description>Extern definitions for WebGL.</description>
+    <version name="0.1">First regurgitation of WebGL 1.0 API</version>
+</project>
