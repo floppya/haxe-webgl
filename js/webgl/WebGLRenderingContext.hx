@@ -61,7 +61,7 @@ extern interface WebGLRenderingContext
 	// Programs and shaders
 	public function attachShader(program:WebGLProgram, shader:WebGLShader):Void;
 	public function bindAttribLocation(program:WebGLProgram, index:GLuint, name:String):Void;
-	public function compileShader(program:WebGLProgram):Void;
+	public function compileShader(shader:WebGLShader):Void;
 	public function createProgram():WebGLProgram;
 	public function createShader(type:GLenum):WebGLShader;
 	public function deleteProgram(program:WebGLProgram):Void;
@@ -69,7 +69,7 @@ extern interface WebGLRenderingContext
 	public function getAttachedShaders():Array<WebGLShader>;
 	public function getProgramParameter(program:WebGLProgram, pname:GLenum):Dynamic;
 	public function getProgramInfoLog(program:WebGLProgram):String;
-	public function getShaderParameter(shader:WebGLShader, pname:String):Dynamic;
+	public function getShaderParameter(shader:WebGLShader, pname:GLenum):Dynamic;
 	public function getShaderInfoLog(shader:WebGLShader):String;
 	public function getShaderSource(shader:WebGLShader):String;
 	public function isProgram(program:WebGLObject):GLboolean;
