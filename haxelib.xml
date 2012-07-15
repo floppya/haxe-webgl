@@ -3,5 +3,5 @@
     <tag v="js"/>
     <tag v="webgl"/>
     <description>Extern definitions for WebGL 1.0</description>
-    <version name="0.1">First regurgitation of WebGL 1.0 API</version>
+    <version name="0.2">Fixed incorrect definitions.</version>
 </project>
