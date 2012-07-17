@@ -17,22 +17,40 @@ typedef GLfloat = Float;
 typedef GLclampf = Float;
 
 /* 
- * These extern definitions come from https://gist.github.com/2112670
- * Owner: jamesu
- * and have been slightly modified to include the native names.
+ * These extern definitions contain code from
+ * 
+ * https://gist.github.com/2112670
+ * owner: jamesu
+ * 
+ * https://github.com/xirsys/stdjs/blob/master/haxelib/js/webgl/TypedArray.hx
+ * owner: xirsys
+ * 
  */
 
+@:native('ArrayBuffer')
 extern class ArrayBuffer {
   public var length: Int;
   public function new(size: Int) : Void;
 }
 
-extern class TypedArray implements Array<Dynamic> {
-  public var length: Int;
+@:native('ArrayBufferView')
+extern interface ArrayBufferView
+{
+	public var buffer:ArrayBuffer;
+	public var byteOffset:Int;
+	public var byteLength:Int;
+}
 
-  public function set(array: Dynamic, offset: Int) : Void;
+extern class TypedArray<T> implements ArrayBufferView, implements ArrayAccess<T> {
+	public var buffer:ArrayBuffer;
+	public var byteOffset:Int;
+	public var byteLength:Int;
+	
+	public var length: Int;
 
-// So the code doesn't complain
+	public function set(array: Dynamic, offset: Int) : Void;
+
+	// So the code doesn't complain
 
 	/**
 		Returns a new Array by appending [a] to [this].
@@ -120,49 +138,49 @@ extern class TypedArray implements Array<Dynamic> {
 }
 
 @:native('Float32Array')
-extern class Float32Array extends TypedArray {
+extern class Float32Array extends TypedArray<GLfloat> {
   public function subarray(begin: Int, end: Int) : Float32Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
 }
 
 @:native('Int8Array')
-extern class Int8Array extends TypedArray {
+extern class Int8Array extends TypedArray<GLbyte> {
   public function subarray(begin: Int, end: Int) : Int8Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
 }
 
 @:native('Int16Array')
-extern class Int16Array extends TypedArray {
+extern class Int16Array extends TypedArray<GLint> {
   public function subarray(begin: Int, end: Int) : Int16Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
 }
 
 @:native('Int32Array')
-extern class Int32Array extends TypedArray {
+extern class Int32Array extends TypedArray<GLint> {
   public function subarray(begin: Int, end: Int) : Int32Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
 }
 
 @:native('Uint8Array')
-extern class Uint8Array extends TypedArray {
+extern class Uint8Array extends TypedArray<GLubyte> {
   public function subarray(begin: Int, end: Int) : Uint8Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
 }
 
 @:native('Uint16Array')
-extern class Uint16Array extends TypedArray {
+extern class Uint16Array extends TypedArray<GLuint> {
   public function subarray(begin: Int, end: Int) : Uint16Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
 }
 
 @:native('Uint32Array')
-extern class Uint32Array extends TypedArray {
+extern class Uint32Array extends TypedArray<GLuint> {
   public function subarray(begin: Int, end: Int) : Uint32Array;
 
   public function new(data: Dynamic, ?offset: Int , ?length: Int) : Void;
