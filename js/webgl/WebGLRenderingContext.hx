@@ -82,8 +82,8 @@ extern interface WebGLRenderingContext
 	// Uniforms and attributes
 	public function disableVertexAttribArray(index:GLuint):Void;
 	public function enableVertexAttribArray(index:GLuint):Void;
-	public function getActiveAttrib(program:WebGLProgram, index:GLuint):WebGLObject;
-	public function getActiveUniform(program:WebGLProgram, index:GLuint):WebGLObject;
+	public function getActiveAttrib(program:WebGLProgram, index:GLuint):WebGLActiveInfo;
+	public function getActiveUniform(program:WebGLProgram, index:GLuint):WebGLActiveInfo;
 	public function getAttribLocation(program:WebGLProgram, name:String):GLint;
 	public function getUniform(program:WebGLProgram, location:WebGLUniformLocation):Dynamic;
 	public function getUniformLocation(program:WebGLProgram, name:String):WebGLUniformLocation;
